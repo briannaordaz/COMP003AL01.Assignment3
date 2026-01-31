@@ -21,7 +21,7 @@ class Program
         int currentAge;
         currentAge = DateTime.Now.Year - birthYear;
         
-        Console.WriteLine("Calculated Age: " + currentAge);
+        Console.WriteLine("\nCalculated Age: " + currentAge);
         
         string category;
         
@@ -42,44 +42,81 @@ class Program
         Console.WriteLine("Readiness Category: " + category );
        
         // Behavior 2:
-        Console.WriteLine("Do you have a valid ID? (Yes/No): ");
+        
+        
+        Console.WriteLine("\nDo you have a valid ID? (Yes/No): ");
         string valid = Console.ReadLine();
-        bool validID = valid.Trim().ToLower() == "yes" ? true : false;
+        bool validID = valid.Trim().ToLower() == "yes";
         
         Console.WriteLine("Have you completed orientation (Yes/No): ");
         string orientationCompleted = Console.ReadLine();
-        bool orientation = orientationCompleted.Trim().ToLower() == "yes" ? true : false;
+        bool orientation = orientationCompleted.Trim().ToLower() == "yes";
+
         
 
-        if (currentAge >= 18)
+        string readinessStatus = "";
+
+        if (category == "Adult")
         {
 
-            if (validID && orientation)
-            {
-                Console.WriteLine("Ready");
 
-               
-            }
-            else if (validID || orientation)
-            {
-                Console.WriteLine("Conditionally Ready ");
-            }
-            else
-            {
-                Console.WriteLine("Not Ready ");
-            }
             
+
+
+                if (validID && orientation)
+                {
+                    readinessStatus = "Ready";
+
+
+                }
+                else if (validID || orientation)
+                {
+                    readinessStatus = "Conditionally Ready";
+                }
+                else
+                {
+                    readinessStatus = "Not Ready";
+                }
+
+
             
-            
-            Console.WriteLine("Select a guidance option: \n 1 - Academic planning \n 2 - Personal Planning \n 3 - Career Planning");
             
         }
+        else
+        {
+            Console.WriteLine("You are too young to proceed!!");
+        }
+
+        Console.WriteLine($"\nReadiness Status: {readinessStatus}");
         
         
-        
+        // Behavior 3:
+        Console.WriteLine("\nSelect a guidance option: \n 1 - Academic planning \n 2 - Personal Planning \n 3 - Career Planning");
+            
+        Console.WriteLine("Enter Choice: ");
+        int choice = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("\nGuidance: ");
+
+        if (readinessStatus == "Ready" || readinessStatus == "Conditionally Ready")
+        {
+            switch (choice)
+            {
+                case 1: Console.WriteLine("Meet with an Academic Advisor to plan your next term!!"); break;
+                case 2: Console.WriteLine("Meet with a personal counselor to help with personal development!!"); break;
+                case 3: Console.WriteLine("Meet with a career counselor to plan your career!!"); break;
+                default: Console.WriteLine("Invalid input!"); break;
+            }
+            
+        }
+        else
+        {
+            Console.WriteLine("Too young or NOT ready to proceed!!");
+        }
 
 
     }
+    
 
 
 
