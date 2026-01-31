@@ -9,6 +9,8 @@ class Program
     {
         Console.WriteLine("=== Academic & Personal Readiness Evaluator ===");
        
+        
+        // Behavior 1
         int currentYear;
         currentYear = DateTime.Now.Year;
         Console.WriteLine("Current year: " + currentYear);
@@ -39,6 +41,36 @@ class Program
         
         Console.WriteLine("Readiness Category: " + category );
        
+        Console.WriteLine("Do you have a valid ID? (Yes/No): ");
+        string valid = Console.ReadLine();
+        bool validID = valid.Trim().ToLower() == "yes" ? true : false;
+        
+        Console.WriteLine("Have you completed orientation (Yes/No): ");
+        string orientationCompleted = Console.ReadLine();
+        bool orientation = orientationCompleted.Trim().ToLower() == "yes" ? true : false;
+        
+        //Behavior 2:
+
+        if (currentAge >= 18)
+        {
+
+            if (validID && orientation)
+            {
+                Console.WriteLine("Ready");
+
+               
+            }
+            else if (validID || orientation)
+            {
+                Console.WriteLine("Conditionally Ready ");
+            }
+            else
+            {
+                Console.WriteLine("Not Ready ");
+            }
+            
+        }
+        
 
 
     }
