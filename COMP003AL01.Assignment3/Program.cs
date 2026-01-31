@@ -41,6 +41,7 @@ class Program
         
         Console.WriteLine("Readiness Category: " + category );
        
+        // Behavior 2:
         Console.WriteLine("Do you have a valid ID? (Yes/No): ");
         string valid = Console.ReadLine();
         bool validID = valid.Trim().ToLower() == "yes" ? true : false;
@@ -49,7 +50,6 @@ class Program
         string orientationCompleted = Console.ReadLine();
         bool orientation = orientationCompleted.Trim().ToLower() == "yes" ? true : false;
         
-        //Behavior 2:
 
         if (currentAge >= 18)
         {
@@ -69,7 +69,13 @@ class Program
                 Console.WriteLine("Not Ready ");
             }
             
+            
+            
+            Console.WriteLine("Select a guidance option: \n 1 - Academic planning \n 2 - Personal Planning \n 3 - Career Planning");
+            
         }
+        
+        
         
 
 
